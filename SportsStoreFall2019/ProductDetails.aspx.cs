@@ -11,7 +11,18 @@ namespace SportsStoreFall2019
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string prodID = Request.QueryString["ProductID"];
 
+            Product pd = CatalogAccess.GetProductDetails(prodID);
+
+            PopulateControls(pd);
+        }
+        protected void PopulateControls(Product pd)
+        {
+            nameLabel.Text = pd.Name;
+            productImage.ImageUrl = "images/" + pd.Image;
+            descLabel.Text = pd.Description;
+            priceLabel.Text = String.Format("", pd.Price);
         }
     }
 }
