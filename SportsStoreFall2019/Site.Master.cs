@@ -69,7 +69,32 @@ namespace SportsStoreFall2019
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            PopulateControls();
+        }
 
+        protected void PopulateControls()
+        {
+            string departmentID = Request.QueryString["DepartmentID"];
+            string categoryID = Request.QueryString["CategoryID"];
+
+            if (departmentID != null || categoryID != null)
+            {
+                DepartmentList.DataSource = CatalogAccess.GetAllDepartments();
+                DepartmentList.DataBind();
+
+                CategoryList.DataSource = CatalogAccess.GetCategoriesInDepartment(departmentID);
+                CategoryList.DataBind();
+            }
+            else
+            {
+                departmentID = "1";
+
+                DepartmentList.DataSource = CatalogAccess.GetAllDepartments();
+                DepartmentList.DataBind();
+
+                CategoryList.DataSource = CatalogAccess.GetCategoriesInDepartment(departmentID);
+                CategoryList.DataBind();
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

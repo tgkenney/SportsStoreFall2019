@@ -23,15 +23,15 @@ namespace SportsStoreFall2019
 
             cmd.CommandText = "spShoppingCartAddItem";
 
-            SqlParameter param = new SqlParameter("@Cartid", cartID);
-            param.DbType = DbType.Guid; //defining the datatype
+            SqlParameter param = new SqlParameter("@cartID", cartID);
+            param.DbType = DbType.String; //defining the datatype
             cmd.Parameters.Add(param); //adds the parameter to the collection of parameters of the command object
 
-            param = new SqlParameter("@Prodid", prodID);
-            param.DbType = DbType.Guid; //defining the datatype
+            param = new SqlParameter("@productID", prodID);
+            param.DbType = DbType.Int32; //defining the datatype
             cmd.Parameters.Add(param); //adds the parameter to the collection of parameters of the command object
 
-            param = new SqlParameter("@Attributes", "None");
+            param = new SqlParameter("@attributes", "None");
             param.DbType = DbType.String; //defining the datatype
             cmd.Parameters.Add(param); //adds the parameter to the collection of parameters of the command object
 

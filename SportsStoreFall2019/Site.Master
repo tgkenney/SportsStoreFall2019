@@ -73,8 +73,26 @@
             </div>
         </div>
 
-        <div id="DepartmentMenu" style="text-align: center; background-color: antiquewhite">This div will show department links</div>
-        <div id="CategoryMenu" style="text-align: center; background-color: coral">This div will show category links</div>
+        <div id="DepartmentMenu" style="text-align: center; background-color: antiquewhite">
+            <asp:ListView ID="DepartmentList" runat="server">
+                <ItemTemplate>
+                    <a href="ProductList.aspx?DepartmentID=<%# Eval("DepartmentID").ToString() %>">
+                        <%# HttpUtility.HtmlEncode(Eval("Name").ToString()) %>
+                    </a>
+                </ItemTemplate>
+                <ItemSeparatorTemplate> | </ItemSeparatorTemplate>
+            </asp:ListView>
+        </div>
+        <div id="CategoryMenu" style="text-align: center; background-color: coral">
+            <asp:ListView ID="CategoryList" runat="server">
+                <ItemTemplate>
+                    <a href="ProductList.aspx?DepartmentID=<%# Eval("DepartmentID").ToString() %>&CategoryID=<%# Eval("CategoryID").ToString() %>">
+                        <%# HttpUtility.HtmlEncode(Eval("Name").ToString()) %>
+                    </a>
+                </ItemTemplate>
+                <ItemSeparatorTemplate> | </ItemSeparatorTemplate>
+            </asp:ListView>
+        </div>
 
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

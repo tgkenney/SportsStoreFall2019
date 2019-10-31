@@ -112,5 +112,77 @@ namespace SportsStoreFall2019
 
             return pd;
         }
+
+        public static DataTable GetAllDepartments()
+        {
+            string connString = ConfigurationManager.ConnectionStrings["SportsStoreConn"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connString);
+
+            SqlCommand cmd = conn.CreateCommand();
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.CommandText = "spGetDepartments";
+
+            DataTable table = new DataTable();
+
+            try
+            {
+                cmd.Connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                table.Load(reader);
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+                Debug.Write("\n\n\n\n" + ex + "\n\n\n");
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return table;
+        }
+
+        public static DataTable GetCategoriesInDepartment(string departmentID)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["SportsStoreConn"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connString);
+
+            SqlCommand cmd = conn.CreateCommand();
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.CommandText = "spGetCategoriesInDepartment";
+
+            SqlParameter param = new SqlParameter("@deptID", departmentID);
+            param.DbType = DbType.Int32; //defining the datatype
+            cmd.Parameters.Add(param); //adds the parameter to the collection of parameters of the command object
+
+            DataTable table = new DataTable();
+
+            try
+            {
+                cmd.Connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                table.Load(reader);
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+                Debug.Write("\n\n\n\n" + ex + "\n\n\n");
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return table;
+        }
     }
 }

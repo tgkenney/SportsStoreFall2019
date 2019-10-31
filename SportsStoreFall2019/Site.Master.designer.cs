@@ -13,6 +13,24 @@ namespace SportsStoreFall2019 {
     public partial class SiteMaster {
         
         /// <summary>
+        /// DepartmentList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView DepartmentList;
+        
+        /// <summary>
+        /// CategoryList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView CategoryList;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>
