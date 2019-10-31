@@ -9,25 +9,34 @@ using System.Web;
 
 namespace SportsStoreFall2019
 {
-    public class CatalogAccess
+    public class CatalogAccess // Utility class that allows us to connect to the database
     {
-        public static Product GetProductDetails(string prodID)
+        public static DataTable GetAllProductsInDept(string departmentID)
         {
+            //create a connection string
             string connString = ConfigurationManager.ConnectionStrings["SportsStoreConn"].ConnectionString;
 
-            // Create a connection
+            //create a connection
             SqlConnection conn = new SqlConnection(connString);
 
-            // Create a command
+            //create a command
             SqlCommand cmd = conn.CreateCommand();
 
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.CommandText = "spGetProductByID";
+            cmd.CommandText = "spGetProductsOnDeptPromoByDeptID";
 
-            SqlParameter param = new SqlParameter("prodid", prodID);
+            //Add the @deptid parameter to the command object
+            SqlParameter param = new SqlParameter("@deptid", departmentID);
             param.DbType = DbType.Int32;
             cmd.Parameters.Add(param);
+
+            //add the @desclength parameter to the command object
+            SqlParameter param2 = new SqlParameter("@desclength", 60);
+            param.DbType = DbType.Int32;
+            cmd.Parameters.Add(param2);
+
+            //open the connection, run the command and close the connection
 
             DataTable table = new DataTable();
 
@@ -36,10 +45,48 @@ namespace SportsStoreFall2019
                 cmd.Connection.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 table.Load(reader);
-                reader.Close();                
+                reader.Close();
+            }
+            catch(Exception ex)
+            {
+                //print out the expections
+                Debug.Write("\n\n\n\n" + ex + "\n\n\n");
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return table;
+        }
+        public static Product GetProductDetails(string prodID)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["SportsStoreConn"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connString);
+
+            SqlCommand cmd = conn.CreateCommand();
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.CommandText = "spGetProductByID";
+
+            SqlParameter param = new SqlParameter("@prodID", prodID);
+            param.DbType = DbType.Int32; //defining the datatype
+            cmd.Parameters.Add(param); //adds the parameter to the collection of parameters of the command object
+
+            DataTable table = new DataTable();
+
+            try
+            {
+                cmd.Connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                table.Load(reader);
+                reader.Close();
             }
             catch (Exception ex)
             {
+
                 Debug.Write("\n\n\n\n" + ex + "\n\n\n");
             }
             finally

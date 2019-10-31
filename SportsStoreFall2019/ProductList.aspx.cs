@@ -11,6 +11,33 @@ namespace SportsStoreFall2019
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            PopulateControls();
+        }
+
+        protected void PopulateControls()
+        {
+            string deptID = Request.QueryString["DepartmentID"]; //this statement reads the query string from the URL
+            string catID = Request.QueryString["CategoryID"]; //reads the ID of the category that the user clicks
+
+            if (catID != null)
+            {
+                DataList1.DataSource = CatalogAccess.GetAllProductsInDept(catID);
+
+                DataList1.DataBind();
+            }
+            else if (deptID != null)
+            {
+                DataList1.DataSource = CatalogAccess.GetAllProductsInDept(deptID);
+
+                DataList1.DataBind();
+            }
+            else
+            {
+                deptID = "1";
+                DataList1.DataSource = CatalogAccess.GetAllProductsInDept(deptID);
+
+                DataList1.DataBind();
+            }
 
         }
     }

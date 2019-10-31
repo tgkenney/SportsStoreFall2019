@@ -18,6 +18,6 @@
             <asp:Label ID="priceLabel" runat="server" Text="Label"></asp:Label>
         </p>
 
-        <asp:Button ID="Button1" runat="server" Text="Add to cart" />
+        <asp:Button ID="Button1" runat="server" Text="Add to cart" OnClick="Button1_Click" />
     </div>
 </asp:Content>
