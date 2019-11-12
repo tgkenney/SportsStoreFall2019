@@ -19,6 +19,8 @@ namespace SportsStoreFall2019.Account
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
+                var result1 = manager.AddToRole(user.Id, "Customer");
+
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 //string code = manager.GenerateEmailConfirmationToken(user.Id);
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);

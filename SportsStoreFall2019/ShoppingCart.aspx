@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ShoppingCart.aspx.cs" Inherits="SportsStoreFall2019.ShoppingCart" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <p>
-    <asp:Label ID="titleLabel" runat="server" Text="title Label"></asp:Label>
+        <asp:Label ID="titleLabel" runat="server" Text="title Label"></asp:Label>
     </p>
 
     <p>
@@ -27,10 +27,11 @@
     </p>
 
     <p>
-    <asp:Label ID="cartTotal" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="cartTotal" runat="server" Text="Label"></asp:Label>
     </p>
 
     <p>
-    <asp:Button ID="UpdateButton" runat="server" Text="Update Quantities" OnClick="UpdateButton_Click" />
+        <asp:Button ID="UpdateButton" runat="server" Text="Update Quantities" OnClick="UpdateButton_Click" />
+        <asp:Button ID="checkoutButton" runat="server" Text="Checkout" OnClick="checkoutButton_Click" />
     </p>
 </asp:Content>

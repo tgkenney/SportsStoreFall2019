@@ -66,8 +66,14 @@ namespace SportsStoreFall2019
                 }
 
                 statusLabel.Text = success ? "Quantity updated" : "An error occured while updating quantity";
-                PopulateControls();
             }
+
+            PopulateControls();
+        }
+
+        protected void checkoutButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/OrderFolder/Checkout.aspx");
         }
     }
 }
