@@ -189,7 +189,13 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Images\accessories.jpg" />
+    <Content Include="Images\bikeart.png" />
+    <Content Include="Images\bikeartlarge.png" />
+    <Content Include="Images\clothart.jpg" />
+    <Content Include="Images\shoes.jpg" />
     <Content Include="OrderFolder\Checkout.aspx" />
+    <Content Include="OrderFolder\OrderPlaced.aspx" />
     <Content Include="ProductDetails.aspx" />
     <Content Include="ProductList.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -369,6 +375,13 @@
     </Compile>
     <Compile Include="OrderFolder\Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderFolder\OrderPlaced.aspx.cs">
+      <DependentUpon>OrderPlaced.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderFolder\OrderPlaced.aspx.designer.cs">
+      <DependentUpon>OrderPlaced.aspx</DependentUpon>
     </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="ProductDetails.aspx.cs">

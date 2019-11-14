@@ -54,16 +54,15 @@ namespace SportsStoreFall2019.OrderFolder
             cmd.CommandText = "spCreateCustomerOrder";
 
             // Add parameters
-            SqlParameter param = new SqlParameter("@cartID", cartID);
+            SqlParameter param = new SqlParameter("@CartID", cartID);
             param.DbType = DbType.String; //defining the datatype
             cmd.Parameters.Add(param); //adds the parameter to the collection of parameters of the command object
 
-            param = new SqlParameter("@custID", Guid.Parse(User.Identity.GetUserId()));
+            param = new SqlParameter("@custID", User.Identity.GetUserId());
             param.DbType = DbType.String; //defining the datatype
             cmd.Parameters.Add(param); //adds the parameter to the collection of parameters of the command object
 
             param = new SqlParameter("@orderid", SqlDbType.Int);
-            param.DbType = DbType.Int32; //defining the datatype
             param.Direction = ParameterDirection.Output;
             cmd.Parameters.Add(param); //adds the parameter to the collection of parameters of the command object
 
@@ -81,6 +80,7 @@ namespace SportsStoreFall2019.OrderFolder
             {
                 cmd.Connection.Close();
             }
+            Response.Redirect("~/OrderFolder/OrderPlaced.aspx?OrderId=" + param.Value);
         }
     }
 }

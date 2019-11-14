@@ -30,6 +30,7 @@ namespace SportsStoreFall2019
                 cartTotal.Text = String.Format("{0:c}", amount);
 
                 UpdateButton.Enabled = true;
+                checkoutButton.Enabled = true;
             }
             else
             {
@@ -37,6 +38,7 @@ namespace SportsStoreFall2019
                 grid.Visible = false;
                 cartTotal.Text = String.Format("{0:c}", 0);
                 UpdateButton.Enabled = false;
+                checkoutButton.Enabled = false;
             }
         }
 
