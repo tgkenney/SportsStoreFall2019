@@ -27,6 +27,21 @@ namespace SportsStoreFall2019
                 roleManager.Create(role);
             }
 
+            if (!roleManager.RoleExists("Administrator"))
+            {
+                var role = new IdentityRole();
+                role.Name = "Administrator";
+                roleManager.Create(role);
+
+                var user = new ApplicationUser
+                {
+                    Email = "adminuser1@test.com",
+                    UserName = "adminuser1@test.com"
+                };
+                userManager.Create(user, "P@ssw0rd");
+                userManager.AddToRole(user.Id, "Administrator");
+            }
+
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
