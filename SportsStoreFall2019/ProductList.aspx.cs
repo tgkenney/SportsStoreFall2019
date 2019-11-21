@@ -21,7 +21,7 @@ namespace SportsStoreFall2019
 
             if (catID != null)
             {
-                DataList1.DataSource = CatalogAccess.GetAllProductsInDept(catID);
+                DataList1.DataSource = CatalogAccess.GetProductsByCategory(catID);
 
                 DataList1.DataBind();
             }

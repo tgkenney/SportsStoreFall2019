@@ -61,6 +61,11 @@ namespace SportsStoreFall2019.AdminFolder
             {
                 cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
+
+                if (imageUpload.HasFile)
+                {
+                    imageUpload.PostedFile.SaveAs(Server.MapPath("~/Images/") + imageUpload.PostedFile.FileName);
+                }
             }
             catch (Exception ex)
             {

@@ -113,6 +113,50 @@ namespace SportsStoreFall2019
             return pd;
         }
 
+        public static DataTable GetProductsByCategory(string categoryID)
+        {
+            //create a connection string
+            string connString = ConfigurationManager.ConnectionStrings["SportsStoreConn"].ConnectionString;
+
+            //create a connection
+            SqlConnection conn = new SqlConnection(connString);
+
+            //create a command
+            SqlCommand cmd = conn.CreateCommand();
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.CommandText = "spGetProductsInCategory";
+
+            //Add the parameter to the command object
+            SqlParameter param = new SqlParameter("@SearchID", categoryID);
+            param.DbType = DbType.Int32;
+            cmd.Parameters.Add(param);
+
+            //open the connection, run the command and close the connection
+
+            DataTable table = new DataTable();
+
+            try
+            {
+                cmd.Connection.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                table.Load(reader);
+                reader.Close();
+            }
+            catch(Exception ex)
+            {
+                //print out the expections
+                Debug.Write("\n\n\n\n" + ex + "\n\n\n");
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return table;
+        }
+
         public static DataTable GetAllDepartments()
         {
             string connString = ConfigurationManager.ConnectionStrings["SportsStoreConn"].ConnectionString;

@@ -40,6 +40,15 @@ namespace SportsStoreFall2019.AdminFolder {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
+        /// ProductCategoryValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ProductCategoryValidator;
+        
+        /// <summary>
         /// NameLabel control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace SportsStoreFall2019.AdminFolder {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox productName;
+        
+        /// <summary>
+        /// ProductNameValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ProductNameValidator;
         
         /// <summary>
         /// DescriptionLabel control.
@@ -76,6 +94,15 @@ namespace SportsStoreFall2019.AdminFolder {
         protected global::System.Web.UI.WebControls.TextBox productDescription;
         
         /// <summary>
+        /// ProductDescriptionValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ProductDescriptionValidator;
+        
+        /// <summary>
         /// PriceLabel control.
         /// </summary>
         /// <remarks>
@@ -94,6 +121,15 @@ namespace SportsStoreFall2019.AdminFolder {
         protected global::System.Web.UI.WebControls.TextBox productPrice;
         
         /// <summary>
+        /// ProductPriceValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ProductPriceValidator;
+        
+        /// <summary>
         /// ImageLabel control.
         /// </summary>
         /// <remarks>
@@ -110,6 +146,15 @@ namespace SportsStoreFall2019.AdminFolder {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload imageUpload;
+        
+        /// <summary>
+        /// ProductImageValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ProductImageValidator;
         
         /// <summary>
         /// AddProductButton control.
